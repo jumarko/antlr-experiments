@@ -9,7 +9,10 @@ field : TEXT
       ;
 
 TEXT : ~[,"\r\n]+ ;
-// This escaping is pretty interesting - NOTE: we cannot use a non-greedy rule *? because that would terminate too early matching only the opening quote, the immediately the closing quote
+// This escaping is pretty interesting
+// NOTE: we cannot use a non-greedy rule *?
+// because that would terminate too early matching only the opening quote,
+// then immediately the closing quote
 STRING : '"' ( '""' | ~'"' )*? '"' ;
 
 NEWLINE : '\r'? '\n' ;
